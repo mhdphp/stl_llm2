@@ -127,6 +127,9 @@ if draft_input:
 
     try:
         improved_redaction = llm(prompt_with_draft)
-        st.write(improved_redaction)
+        if st.session_state.model_provider == "OpenAI":
+            st.write(improved_redaction)
+        else:
+            st.write(improved_redaction.content)
     except Exception as e:
         st.error(f"Error generating response: {str(e)}")
