@@ -42,7 +42,7 @@ def load_LLM(api_key):
     try:
         if st.session_state.model_provider == "OpenAI":
             #from langchain_openai import OpenAI
-            llm = ChatOpenAI(model="gpt-4o-mini", temperature=.7, openai_api_key=api_key)
+            llm = OpenAI(temperature=.7, openai_api_key=api_key)
         else:
             #from langchain_community.llms import Deepseek
             llm = ChatDeepSeek(model="deepseek-chat", temperature=.7, api_key=api_key)
